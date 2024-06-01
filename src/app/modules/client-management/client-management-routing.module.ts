@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { MakeReservationComponent } from './components/make-reservation/make-reservation.component';
+import { ListReservationsComponent } from './components/list-reservations/list-reservations.component';
 
 const routes: Routes = [
   {
@@ -11,6 +13,14 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'makereservation',
+    component: MakeReservationComponent
+  },
+  {
+    path: 'listreservation',
+    component: ListReservationsComponent
   },
 ];
 

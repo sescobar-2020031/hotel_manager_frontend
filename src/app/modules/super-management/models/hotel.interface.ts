@@ -33,3 +33,8 @@ export interface EditHotelRequest {
     phone: string
     email: string
 }
+
+export interface HotelWithExtras extends Hotel {
+    image: string;
+    score: number;
+}

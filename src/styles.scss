@@ -204,3 +204,16 @@ mat-sidenav.main-sidenav {
   align-items: center;
   z-index: 1000;
 }
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f97316;
+  border-radius: 10px 0 0 10px;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #fa6800 !important;
+}

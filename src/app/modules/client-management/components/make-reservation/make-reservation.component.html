@@ -1,0 +1,33 @@
+<div id="make_reservation">
+  <div class="content-container main-screen">
+    <header class="row title principal-title">
+      <div class="col-xs-12 text-center header_container">
+        <h1 class="main-title">Elige un hotel</h1>
+      </div>
+    </header>
+    <section class="make_resevation_content main-content">
+      <div class="container">
+        <div class="hotel-list">
+          <div *ngFor="let hotel of listHotels" class="hotel-row">
+            <img [src]="hotel.image" alt="Hotel" class="hotel-image">
+            <div class="hotel-details">
+              <h2>{{ hotel.name }}</h2>
+              <p>{{ hotel.address }}</p>
+              <p>Teléfono: {{ hotel.phone }}</p>
+              <p>Correo Electrónico: {{ hotel.email }}</p>
+              <p>Calificación:
+                <mat-icon *ngFor="let _ of [].constructor(hotel.score)">star</mat-icon>
+                <mat-icon *ngFor="let _ of [].constructor(5 - hotel.score)">star_border</mat-icon>
+              </p>
+              <btn-primary label="Seleccionar" id="sendForm" name="sendForm" type="button" class="buttonHeightSmall"></btn-primary>
+            </div>
+          </div>
+        </div>
+        <div class="map" id="map"></div>
+      </div>
+    </section>
+    <div *ngIf="loading" class="spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+</div>

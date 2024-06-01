@@ -56,11 +56,11 @@ const routes: any[] = [
     subItems: [
       {
         name: 'Mis Reservaciones',
-        link: '/paymentfile',
+        link: '/client/listreservation',
       },
       {
         name: 'Hacer Reservacion',
-        link: '/paymentfile',
+        link: '/client/makereservation',
       }
     ]
   }
