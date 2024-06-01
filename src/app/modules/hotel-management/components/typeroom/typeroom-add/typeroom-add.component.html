@@ -1,0 +1,54 @@
+<div id="hotel_add">
+  <div class="content-container main-screen">
+    <header class="row title principal-title">
+      <div class="col-xs-12 text-center header_container">
+        <h1 class="main-title">Añadir Tipo de Habitacion</h1>
+      </div>
+    </header>
+    <section class="hotel_content main-content">
+      <form [formGroup]="form" (ngSubmit)="sendForm()" *ngIf="!loading">
+        <text-input
+          [required]="true"
+          formControlName="description"
+          placeholder="Describa el tipo de habitacion"
+          label="Descripcion"
+          id="description"
+          name="description"
+          [validateText]="true"
+        />
+
+        <text-input
+          [required]="true"
+          formControlName="capacity"
+          placeholder="Establezca la capacidad del tipo de habitacion"
+          label="Capacidad"
+          id="capacity"
+          name="capacity"
+          [onlyNumbers]="true"
+        />
+
+        <text-input
+          [required]="true"
+          formControlName="price_Per_Night"
+          placeholder="Establezca el precio por noche"
+          label="Precio por noche"
+          id="price_Per_Night"
+          name="price_Per_Night"
+          [onlyNumbers]="true"
+        />
+
+        <div>&nbsp;</div>
+        <btn-primary
+          label="Confirmar"
+          id="sendForm"
+          name="sendForm"
+          type="submit"
+          [disabled]="loading || !form.valid"
+        ></btn-primary>
+      </form>
+    </section>
+    <div *ngIf="loading" class="spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+</div>

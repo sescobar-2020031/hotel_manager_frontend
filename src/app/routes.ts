@@ -31,6 +31,23 @@ const routes: any[] = [
     onlyAdministrador: true
   },
 
+  {
+    name: 'Administracion de Habitaciones',
+    iconType: 'FontAwesome',
+    icon: 'fa-solid fa-hotel',
+    onlyAdministrador: true,
+    subItems: [
+      {
+        name: 'Habitaciones',
+        link: '/hotel/rooms',
+      },
+      {
+        name: 'Tipos de Habitaciones',
+        link: '/hotel/types',
+      },
+    ]
+  },
+
   /* Rutas Empleado */
   {
     name: 'Inicio',
