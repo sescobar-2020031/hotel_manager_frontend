@@ -2,10 +2,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
-import { CreateTypeRequest } from '../../models/type.interface';
-import { TypesService } from '../../services/type.service';
+import { CreateTypeRequest } from '../../../models/type.interface';
+import { TypesService } from '../../../services/type.service';
 import { Router } from '@angular/router';
-import { SessionUserService } from '../../../../core/services/session-user.service';
+import { SessionUserService } from '../../../../../core/services/session-user.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({

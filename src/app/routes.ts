@@ -30,14 +30,23 @@ const routes: any[] = [
     icon: 'fa-solid fa-house-user',
     onlyAdministrador: true
   },
-  {
-    name: 'Tipos de Habitaciones',
-    link: '/hotel/types',
-    iconType: 'FontAwesome',
-    icon: 'fa-solid fa-bed',
-    onlyAdministrador: true
-  },
 
+  {
+    name: 'Administracion de Habitaciones',
+    iconType: 'FontAwesome',
+    icon: 'fa-solid fa-hotel',
+    onlyAdministrador: true,
+    subItems: [
+      {
+        name: 'Habitaciones',
+        link: '/hotel/rooms',
+      },
+      {
+        name: 'Tipos de Habitaciones',
+        link: '/hotel/types',
+      },
+    ]
+  },
 
   /* Rutas Empleado */
   {

@@ -1,0 +1,65 @@
+<div id="hotel_add">
+  <div class="content-container main-screen">
+    <header class="row title principal-title">
+      <div class="col-xs-12 text-center header_container">
+        <h1 class="main-title">Añadir Habitacion</h1>
+      </div>
+    </header>
+    <section class="hotel_content main-content">
+      <form [formGroup]="form" (ngSubmit)="sendForm()" *ngIf="!loading">
+        <text-input
+          [required]="true"
+          formControlName="room_Number"
+          placeholder="Numero de habitacion"
+          label="Numero de habitacion"
+          id="room_Number"
+          name="room_Number"
+          [validateText]="true"
+        />
+
+        <select-input
+          id="type_ID"
+          name="type_ID"
+          label="Tipo de habitacion"
+          placeholder="Seleccione un tipo de habitacion"
+          icon="fa-regular fa-user"
+          [required]="true"
+          formControlName="type_ID"
+        >
+          <select-option
+            *ngFor="let icon of types"
+            [value]="icon.type_ID.toString()"
+            [label]="icon.description"
+            target="_blank"
+          />
+        </select-input>
+
+        <select-input
+          id="status"
+          name="status"
+          label="Estado"
+          placeholder="Seleccione un estado"
+          icon="fa-regular fa-user"
+          [required]="true"
+          formControlName="status"
+        >
+          <select-option value="Disponible" label="Disponible" />
+          <select-option value="Ocupada" label="Ocupada" />
+          <select-option value="Mantenimiento" label="Mantenimiento" />
+        </select-input>
+
+        <div>&nbsp;</div>
+        <btn-primary
+          label="Confirmar"
+          id="sendForm"
+          name="sendForm"
+          type="submit"
+          [disabled]="loading || !form.valid"
+        ></btn-primary>
+      </form>
+    </section>
+    <div *ngIf="loading" class="spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+</div>

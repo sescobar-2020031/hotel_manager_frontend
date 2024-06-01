@@ -18,4 +18,10 @@ export const environment = {
 
   /* TYPES */
   TYPES_ALL: BASE_IP + '/Types/',
+
+  /* ROOMS */
+  ROOMS_GET: BASE_IP + '/Rooms/Get',
+  ROOMS_ADD: BASE_IP + '/Rooms/Create',
+  ROOMS_EDIT: BASE_IP + '/Rooms/Update',
+  ROOMS_DELETE: BASE_IP + '/Rooms/Delete',
 };

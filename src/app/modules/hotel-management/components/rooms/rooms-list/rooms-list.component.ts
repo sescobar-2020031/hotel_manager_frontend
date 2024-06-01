@@ -1,22 +1,23 @@
+
 import { Component, ViewEncapsulation } from '@angular/core';
-import { Types } from '../../models/type.interface';
-import { TypesService } from '../../services/type.service';
-import { SessionUserService } from '../../../../core/services/session-user.service';
+import { Rooms } from '../../../models/rooms.interface';
+import { RoomsService } from '../../../services/rooms.service';
+import { SessionUserService } from '../../../../../core/services/session-user.service';
 import { Router } from '@angular/router';
-import { Action } from '../../../../shared/pipes/get-title-edit-delete-component.pipe';
+import { Action } from '../../../../../shared/pipes/get-title-edit-delete-component.pipe';
 
 @Component({
   selector: 'hotelmger-hotel-list',
-  templateUrl: './typeroom-list.component.html',
-  styleUrl: './typeroom-list.component.scss',
+  templateUrl: './rooms-list.component.html',
+  styleUrl: './rooms-list.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class TyperoomListComponent {
+export class RoomsListComponent {
   loading: boolean = false;
-  hotelList: Array<Types> = [];
+  hotelList: Array<Rooms> = [];
 
   constructor(
-    public hotelService: TypesService,
+    public hotelService: RoomsService,
     public sessionUserService: SessionUserService,
     private router: Router
   ) {}
@@ -38,8 +39,8 @@ export class TyperoomListComponent {
       error: (err) => {
         if (err.error.showMessageError) {
           this.sessionUserService.detachFailureDialog(
-            'Error obteniendo hoteles',
-            err.error.message || 'Error obteniendo hoteles, intenta más tarde'
+            'Error obteniendo habitaciones',
+            err.error.message || 'Error obteniendo habitaciones, intenta más tarde'
           );
         }
         this.loading = false;
@@ -47,16 +48,16 @@ export class TyperoomListComponent {
     });
   }
 
-  editHotel(hotel: Types) {
+  editHotel(hotel: Rooms) {
     this.hotelService.setHotelSelected({
       action: Action.EDIT,
       type: hotel,
     });
 
-    this.router.navigate(['/hotel/edit_delete_types']);
+    this.router.navigate(['/hotel/edit_delete_rooms']);
   }
 
   redictToAdd() {
-    this.router.navigate(['/hotel/addTypes']);
+    this.router.navigate(['/hotel/addRooms']);
   }
 }

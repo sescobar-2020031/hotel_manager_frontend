@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { Action } from '../../../../shared/pipes/get-title-edit-delete-component.pipe';
+import { Action } from '../../../../../shared/pipes/get-title-edit-delete-component.pipe';
 import {
   EditDeleteTypeData,
   EditTypeRequest,
   Types,
-} from '../../models/type.interface';
+} from '../../../models/type.interface';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { TypesService } from '../../services/type.service';
+import { TypesService } from '../../../services/type.service';
 import { Router } from '@angular/router';
-import { SessionUserService } from '../../../../core/services/session-user.service';
+import { SessionUserService } from '../../../../../core/services/session-user.service';
 
 @Component({
   selector: 'hotelmger-hotel-edit-delete',

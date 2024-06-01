@@ -1,0 +1,81 @@
+<div id="hotel_list">
+  <div class="content-container main-screen">
+    <header class="row title principal-title">
+      <div class="col-xs-12 text-center header_container">
+        <h1 class="main-title">Habitaciones</h1>
+        <div class="buttonContainer single-button">
+          <btn-primary
+            label="Añadir habitaciones"
+            icon="fa-regular fa-square-plus"
+            (onClick)="redictToAdd()"
+          />
+        </div>
+      </div>
+    </header>
+    <section class="hotel_content main-content">
+      <basic-table
+        [data]="hotelList"
+        dataKey="room_ID"
+        [laoding]="loading"
+        [globalFilter]="true"
+        [globalFilterFields]="[
+          'room_Number',
+          'price_Per_Night',
+          'capacity',
+          'status'
+        ]"
+        [filters]="true"
+      >
+        <basic-option
+          headerLabel="Numero de habitacion"
+          headerId="room_Number"
+          keyValue="room_Number"
+          styleTitleHeader="min-width:200px"
+          filterPlaceHolder="Numero de habitacion"
+          filterType="text"
+        />
+
+        <basic-option
+          headerLabel="Capacidad"
+          headerId="capacity"
+          keyValue="capacity"
+          styleTitleHeader="min-width:200px"
+          filterPlaceHolder="Capacidad"
+          filterType="text"
+        />
+
+        <basic-option
+          headerLabel="Precio por noche"
+          headerId="price_Per_Night"
+          keyValue="price_Per_Night"
+          styleTitleHeader="min-width:200px"
+          filterPlaceHolder="Precio por noche"
+          filterType="text"
+        />
+
+        <basic-option
+          headerLabel="Estado"
+          headerId="status"
+          keyValue="status"
+          styleTitleHeader="min-width:200px"
+          filterPlaceHolder="Estado"
+          filterType="text"
+        />
+
+        <basic-option
+          headerLabel="Editar"
+          headerId="buton"
+          valueAlign="center"
+          styleTitleHeader="min-width:20px"
+          filterType="button"
+          buttonIcon="fa-solid fa-pen-to-square"
+          toolTipButtonIcon="Editar tipo"
+          (onClick)="editHotel($event)"
+        />
+      </basic-table>
+    </section>
+    <div *ngIf="loading" class="spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+</div>
