@@ -7,6 +7,8 @@ import { TyperoomEditDeleteComponent } from './components/typeroom/typeroom-edit
 import { RoomsListComponent } from './components/rooms/rooms-list/rooms-list.component';
 import { RoomsAddComponent } from './components/rooms/rooms-add/rooms-add.component';
 import { RoomsEditDeleteComponent } from './components/rooms/rooms-edit-delete/rooms-edit-delete.component';
+import { UserslistComponent } from './components/users/userslist/userslist.component';
+import { UseraddComponent } from './components/users/useradd/useradd.component';
 
 /** Llegar siempre desde hotel/{ruta} */
 const routes: Routes = [
@@ -42,6 +44,14 @@ const routes: Routes = [
   {
     path: 'edit_delete_rooms',
     component: RoomsEditDeleteComponent,
+  },
+  {
+    path: 'users',
+    component: UserslistComponent,
+  },
+  {
+    path: 'addUsers',
+    component: UseraddComponent,
   },
 ];
 

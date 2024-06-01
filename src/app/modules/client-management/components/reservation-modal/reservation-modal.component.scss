@@ -1,0 +1,42 @@
+#reservation_modal {
+  mat-form-field {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .mat-mdc-dialog-container .mat-mdc-dialog-title + .mat-mdc-dialog-content {
+    padding-top: 0;
+    padding: 2rem;
+    padding-bottom: 2rem;
+    padding-bottom: 0px;
+  }
+
+  .mdc-dialog__content{
+    padding-top: 0;
+    padding: 2rem;
+    padding-bottom: 2rem;
+    padding-bottom: 0px;
+  }
+}
+
+.buttonsReservationDates {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  padding-bottom: 1rem;
+
+  btn-secondary {
+    flex: 1;
+  }
+
+  btn-primary {
+    flex: 1;
+  }
+}
+
+.reservation_date_fiend {
+  width: 100%;
+}

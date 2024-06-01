@@ -19,7 +19,7 @@
                 <mat-icon *ngFor="let _ of [].constructor(hotel.score)">star</mat-icon>
                 <mat-icon *ngFor="let _ of [].constructor(5 - hotel.score)">star_border</mat-icon>
               </p>
-              <btn-primary label="Seleccionar" id="sendForm" name="sendForm" type="button" class="buttonHeightSmall"></btn-primary>
+              <btn-primary label="Seleccionar" id="sendForm" name="sendForm" type="button" class="buttonHeightSmall" (onClick)="selectRoom(hotel)"></btn-primary>
             </div>
           </div>
         </div>

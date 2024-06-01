@@ -6,13 +6,17 @@ import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from '../../shared/shared.module';
 import { MakeReservationComponent } from './components/make-reservation/make-reservation.component';
 import { ListReservationsComponent } from './components/list-reservations/list-reservations.component';
+import { SelectRoomComponent } from './components/select-room/select-room.component';
+import { ReservationModalComponent } from './components/reservation-modal/reservation-modal.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     MakeReservationComponent,
-    ListReservationsComponent
+    ListReservationsComponent,
+    SelectRoomComponent,
+    ReservationModalComponent
   ],
   imports: [
     CommonModule,

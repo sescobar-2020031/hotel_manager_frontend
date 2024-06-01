@@ -2,6 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HotelService } from '../../../super-management/services/hotel.service';
 import { HotelWithExtras } from '../../../super-management/models/hotel.interface';
 import { SessionUserService } from '../../../../core/services/session-user.service';
+import { Router } from '@angular/router';
+import { MakeReservationService } from '../../services/make-reservation.service';
 
 @Component({
   selector: 'hotelmger-make-reservation',
@@ -27,7 +29,9 @@ export class MakeReservationComponent implements OnInit {
 
   constructor(
     private hotelService: HotelService,
-    private sessionUserService: SessionUserService
+    private sessionUserService: SessionUserService,
+    private makeReservationService: MakeReservationService,
+    private router: Router
   ) { }
 
   map!: google.maps.Map;
@@ -98,5 +102,10 @@ export class MakeReservationComponent implements OnInit {
 
   getRandomImage(): string {
     return this.images[Math.floor(Math.random() * this.images.length)];
+  }
+
+  selectRoom(hotel: HotelWithExtras) {
+    this.makeReservationService.setHotelSelected(hotel)
+    this.router.navigate(['/client/selectroom']);
   }
 }

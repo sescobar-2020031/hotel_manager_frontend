@@ -5,21 +5,21 @@ const routes: any[] = [
     link: '/super/home',
     iconType: 'FontAwesome',
     icon: 'fa-solid fa-house-user',
-    onlySuperAdmin: true
+    onlySuperAdmin: true,
   },
   {
     name: 'Hoteles',
     link: '/super/hotellist',
     iconType: 'FontAwesome',
     icon: 'fa-solid fa-hotel',
-    onlySuperAdmin: true
+    onlySuperAdmin: true,
   },
   {
     name: 'Usuarios',
     link: '/super/userlist',
     iconType: 'FontAwesome',
     icon: 'fa-solid fa-users',
-    onlySuperAdmin: true
+    onlySuperAdmin: true,
   },
 
   /* Rutas Administrador */
@@ -28,7 +28,15 @@ const routes: any[] = [
     link: '/hotel/home',
     iconType: 'FontAwesome',
     icon: 'fa-solid fa-house-user',
-    onlyAdministrador: true
+    onlyAdministrador: true,
+  },
+
+  {
+    name: 'Usuarios',
+    link: '/hotel/users',
+    iconType: 'FontAwesome',
+    icon: 'fa-solid fa-house-user',
+    onlyAdministrador: true,
   },
 
   {
@@ -45,7 +53,7 @@ const routes: any[] = [
         name: 'Tipos de Habitaciones',
         link: '/hotel/types',
       },
-    ]
+    ],
   },
 
   /* Rutas Empleado */
@@ -54,7 +62,7 @@ const routes: any[] = [
     link: '/hotel/home',
     iconType: 'FontAwesome',
     icon: 'fa-solid fa-house-user',
-    onlyEmpleado: true
+    onlyEmpleado: true,
   },
 
   /* Rutas Cliente */
@@ -63,7 +71,7 @@ const routes: any[] = [
     link: '/client/home',
     iconType: 'FontAwesome',
     icon: 'fa-solid fa-house-user',
-    onlyClient: true
+    onlyClient: true,
   },
   {
     name: 'Reservaciones',
@@ -78,9 +86,9 @@ const routes: any[] = [
       {
         name: 'Hacer Reservacion',
         link: '/client/makereservation',
-      }
-    ]
-  }
+      },
+    ],
+  },
 ];
 
 export { routes };

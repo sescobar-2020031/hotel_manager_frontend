@@ -14,6 +14,12 @@ export interface Rooms {
   status: string;
   price_Per_Night: number;
   capacity: number;
+  type: string;
+}
+
+export interface RoomWithExtras extends Rooms {
+  image: string;
+  score: number;
 }
 
 export interface CreateRoomRequest {

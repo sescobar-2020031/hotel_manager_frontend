@@ -1,0 +1,39 @@
+<div id="user_list">
+    <div class="content-container main-screen">
+        <header class="row title principal-title">
+            <div class="col-xs-12 text-center header_container">
+                <h1 class="main-title">Usuarios</h1>
+                <div class="buttonContainer single-button">
+                    <btn-primary label="Añadir Usuario" icon="fa-regular fa-square-plus" (onClick)="redictToAdd()" />
+                </div>
+            </div>
+        </header>
+        <section class="users_content main-content">
+            <basic-table [data]="usersList" dataKey="person_ID" [laoding]="loading" [globalFilter]="true"
+                [globalFilterFields]="['name', 'phone', 'email', 'identity_Document', 'role', 'hotel_Name']" [filters]="true">
+
+                <basic-option headerLabel="Nombre" headerId="name" keyValue="name" styleTitleHeader="min-width:200px"
+                    filterPlaceHolder="Nombre" filterType="text" />
+
+                <basic-option headerLabel="Teléfono" headerId="phone" keyValue="phone"
+                    styleTitleHeader="min-width:200px" filterPlaceHolder="Teléfono" filterType="text" />
+
+                <basic-option headerLabel="Correo" headerId="email" keyValue="email" styleTitleHeader="min-width:200px"
+                    filterPlaceHolder="Correo" filterType="text" />
+
+                <basic-option headerLabel="DPI" headerId="identity_Document" keyValue="identity_Document"
+                    styleTitleHeader="min-width:200px" filterPlaceHolder="DPI" filterType="text" />
+
+                <basic-option headerLabel="Role" headerId="role" keyValue="role" styleTitleHeader="min-width:200px"
+                    filterPlaceHolder="Role" filterType="text" />
+
+                <basic-option headerLabel="Hotel" headerId="hotel_Name" keyValue="hotel_Name"
+                    styleTitleHeader="min-width:200px" filterPlaceHolder="Hotel" filterType="text" />
+
+            </basic-table>
+        </section>
+        <div *ngIf="loading" class="spinner">
+            <mat-spinner></mat-spinner>
+        </div>
+    </div>
+</div>

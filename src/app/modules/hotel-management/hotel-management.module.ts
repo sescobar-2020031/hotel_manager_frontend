@@ -10,6 +10,8 @@ import { TyperoomListComponent } from './components/typeroom/typeroom-list/typer
 import { RoomsAddComponent } from './components/rooms/rooms-add/rooms-add.component';
 import { RoomsEditDeleteComponent } from './components/rooms/rooms-edit-delete/rooms-edit-delete.component';
 import { RoomsListComponent } from './components/rooms/rooms-list/rooms-list.component';
+import { UserslistComponent } from './components/users/userslist/userslist.component';
+import { UseraddComponent } from './components/users/useradd/useradd.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { RoomsListComponent } from './components/rooms/rooms-list/rooms-list.com
     TyperoomEditDeleteComponent,
     RoomsListComponent,
     RoomsAddComponent,
-    RoomsEditDeleteComponent
+    RoomsEditDeleteComponent,
+    UserslistComponent,
+    UseraddComponent
   ],
   imports: [
     CommonModule,

@@ -39,6 +39,10 @@ export class RegisterComponent {
     this.authenticationService.registerClient(registerReq)
       .subscribe({
         next: (resp) => {
+          this.sessionUserService.showSuccessDialog(
+            'Registro completado exitosamente',
+            'Felicidades ya tienes un nuevo Usuario'
+          );
           this.router.navigate(['/home/login']);
         },
         error: (err: HttpErrorResponse) => {

@@ -1,0 +1,59 @@
+<div id="user_add">
+    <div class="content-container main-screen">
+        <header class="row title principal-title">
+            <div class="col-xs-12 text-center header_container">
+                <h1 class="main-title">Añadir Usuario</h1>
+            </div>
+        </header>
+        <section class="user_content main-content">
+            <form [formGroup]="form" (ngSubmit)="sendForm()" *ngIf="!loading">
+                <text-input id="username" name="username" label="Nombre de usuario"
+                    placeholder="Escribe el nombre de usuario" icon="fa-regular fa-user" [required]="true"
+                    [validateText]="true" formControlName="username" />
+
+                <text-input id="name" name="name" label="Nombre Completo" placeholder="Escribe tu nombre completo"
+                    icon="fa-regular fa-user" [required]="true" [validateText]="true" formControlName="name" />
+
+                <text-input id="identity_document" name="identity_document" label="DPI" placeholder="Escribe tu DPI"
+                    icon="fa-regular fa-user" [required]="true" [validateText]="true" [onlyNumbers]="true"
+                    formControlName="identity_document" />
+
+                <text-input id="phone" name="phone" label="Teléfono" placeholder="Escribe tu teléfono"
+                    icon="fa-regular fa-user" [required]="true" [validateText]="true" [onlyNumbers]="true"
+                    [maxLength]="8" [minLength]="8"
+                    [errorMessages]="{maxlength: 'Por favor coloca un teléfono valido', minlength: 'Por favor coloca un teléfono valido'}"
+                    formControlName="phone" />
+
+                <text-input id="address" name="address" label="Dirección" placeholder="Escribe tu dirección"
+                    icon="fa-regular fa-user" [required]="true" [validateText]="true" formControlName="address" />
+
+                <text-input id="email" name="email" label="Correo" placeholder="Escribe tu email"
+                    icon="fa-regular fa-user" [required]="true" [validateEmail]="true" formControlName="email" />
+
+                <password-input id="password" name="password" label="Contraseña" placeholder="Escribe tu contraseña"
+                    icon="fa-solid fa-lock" [required]="true" formControlName="password" />
+
+                <select-input id="role" name="role" label="Role" placeholder="Seleccione un role"
+                    icon="fa-regular fa-user" [required]="true" formControlName="role">
+                    <select-option value="Cliente" label="Cliente" />
+                    <select-option value="Empleado" label="Empleado" />
+                    <select-option value="Administrador" label="Administrador" />
+                    <select-option value="Super Admin" label="Super Admin" />
+                </select-input>
+
+                <select-input id="hotel" name="hotel" label="Hotel" placeholder="Seleccione un hotel"
+                    icon="fa-solid fa-user" formControlName="hotel_id" 
+                    *ngIf="this.form.get('role')?.value != 'Cliente' && this.form.get('role')?.value != 'Super Admin'">
+                    <select-option *ngFor="let item of listHotels" value="{{item.hotel_ID}}" label="{{ item.name }}" />
+                </select-input>
+
+                <div>&nbsp;</div>
+                <btn-primary label="Confirmar" id="sendForm" name="sendForm" type="submit"
+                    [disabled]="loading || !form.valid"></btn-primary>
+            </form>
+        </section>
+        <div *ngIf="loading" class="spinner">
+            <mat-spinner></mat-spinner>
+        </div>
+    </div>
+</div>

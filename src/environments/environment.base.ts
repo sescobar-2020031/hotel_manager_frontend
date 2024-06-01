@@ -24,4 +24,7 @@ export const environment = {
   ROOMS_ADD: BASE_IP + '/Rooms/Create',
   ROOMS_EDIT: BASE_IP + '/Rooms/Update',
   ROOMS_DELETE: BASE_IP + '/Rooms/Delete',
+
+  /* RESERVATIONS */
+  RESERVATIONS_ADD: BASE_IP + '/Reservation/create',
 };

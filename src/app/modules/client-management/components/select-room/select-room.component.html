@@ -1,0 +1,31 @@
+<div class="hotel-detail">
+    <div class="hotel-info">
+      <img [src]="hotel.image" alt="Hotel image" class="hotel-image">
+      <div class="hotel-details">
+        <h2>{{ hotel.name }}</h2>
+        <p>{{ hotel.address }}</p>
+        <p>Teléfono: {{ hotel.phone }}</p>
+        <p>Correo Electrónico: {{ hotel.email }}</p>
+        <p>Calificación: 
+          <mat-icon *ngFor="let _ of [].constructor(hotel.score)">star</mat-icon>
+          <mat-icon *ngFor="let _ of [].constructor(5 - hotel.score)">star_border</mat-icon>
+        </p>
+      </div>
+    </div>
+    <div class="room-list">
+      <mat-card *ngFor="let room of rooms" class="room-card">
+        <mat-card-content class="room-card-item">
+          <h3>{{ room.type }}</h3>
+          <p>Precio: {{ room.price_Per_Night }} €</p>
+          <p>Status: {{room.status}}</p>
+          <p>Capacidad: {{room.capacity}}</p>
+          <p>No Habitación: {{room.room_Number}}</p>
+          <btn-primary label="Reservar" id="sendForm" name="sendForm" type="button" class="buttonHeightSmall" (onClick)="openReservationModal(room)"></btn-primary>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="confirm-button">
+      <btn-primary label="Confirmar Reservación" id="sendForm" name="sendForm" type="button" (onClick)="confirmReservation()"></btn-primary>
+    </div>
+  </div>
+  
