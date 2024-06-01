@@ -1,0 +1,77 @@
+#navbar_logged_in {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 60px;
+
+    .p-menubar {
+        justify-content: space-between;
+        background: none;
+        border: none;
+
+        .p-menubar-end {
+            margin-left: 0px;
+        }
+    }
+
+    .hotelname {    
+        padding: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 8px;
+        text-decoration: none;
+        cursor: pointer;
+
+        span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #3d4b58;
+            line-height: 1.6;
+        }
+
+        &:hover {
+            background-color: #f3f4f6;
+        }
+    }
+
+    .user_information{
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 8px;
+        text-decoration: none;
+        position: relative;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #f3f4f6;
+        }
+    }
+
+    .p-menuitem-link {
+        display: flex;
+        align-items: center;
+    }
+    
+    .p-menuitem-icon {
+        margin-right: 0.5rem;
+    }
+
+    .name_user {
+        h1 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2C3E50;
+            line-height: 1.6;
+        }
+
+        p {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #7F8C8D;
+        }
+    }
+}

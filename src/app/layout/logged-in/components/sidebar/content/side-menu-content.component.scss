@@ -1,0 +1,407 @@
+@import '../../../../../styles/_variables.scss';
+@import '../../../../../styles/_mixins.scss';
+
+hotelmger-logged-in-sidebar {
+  display: block;
+  height: 100%;
+  background-color: $sideMenuBackGround;
+
+  .menu-item {
+    padding: 0px;
+
+    .menu-item-title {
+      display: flex;
+      flex-direction: column;
+
+      .description {
+        font-size: $font-size-xs;
+        font-weight: 300;
+      }
+    }
+
+    .simple-menu {
+      height: 52px;
+      padding: 0px 10px;
+      background: transparent;
+      display: flex;
+      align-items: center;
+
+      .simple-menu-item {
+        width: 100%;
+        color: #2C3E50;
+        text-decoration: none;
+        @include title1();
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 10px;
+        border-radius: 5px;
+
+        &:hover,
+        &:focus {
+          outline: 0;
+          color: #2C3E50;
+          background: $sideMenuHoverBackGround;
+        }
+
+        &.active {
+          background: #ffe7d3;
+          color: #f97316;
+
+          .icon {
+            color: #f97316;
+          }
+        }
+      }
+    }
+
+    mat-expansion-panel.expandable-menu-item {
+      // Resets
+      box-shadow: none !important;
+      background: transparent;
+      color: $sideMenuColor;
+      text-decoration: none;
+      cursor: pointer;
+
+      .mat-expansion-panel-header {
+        height: 52px;
+        padding: 0px 10px;
+        background: transparent;
+        display: flex;
+        align-items: center;
+
+        &:hover{
+          background: transparent !important;
+        }
+
+        .expandable-menu-header {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px;
+          border-radius: 5px;
+
+          .expandable-menu-title {
+            color: #2C3E50;
+            display: flex;
+            @include title1();
+            align-items: center;
+            gap: 1rem;
+          }
+
+          .expanded_icon {
+            color: #2C3E50;
+            transition: 300ms ease-in-out;
+            transform: rotate(0deg);
+
+            &.rotated {
+              transform: rotate(180deg);
+            }
+          }
+        }
+
+        .mat-expansion-indicator::after {
+          display: none;
+        }
+      }
+
+      @media(hover: none) {
+        .mat-expansion-panel-header{
+          background: transparent !important;
+        }
+      }
+
+      &.active {
+        .mat-expansion-panel-header {
+          .expandable-menu-header {
+            outline: 0;
+            color: $sideMenuColor;
+            background: #ffe7d3;
+
+            .expandable-menu-title {
+              color: #f97316;
+
+              .icon {
+                color: #f97316;
+              }
+            }
+
+            .expanded_icon {
+              color: #f97316;
+            }
+          }
+        }
+      }
+
+      &.open {
+        .mat-expansion-panel-header {
+          .expandable-menu-header {
+            background: #fef3e9;
+          }
+        }
+      }
+
+      &:not(.active) {
+        &:hover,
+        &:focus {
+          .mat-expansion-panel-header {
+            .expandable-menu-header {
+              background: $sideMenuHoverBackGround;
+            }
+          }
+        }
+      }
+
+      .mat-expansion-panel-content {
+        width: 100%;
+
+        .mat-expansion-panel-body {
+          padding: 0;
+
+          .expandable-menu-body {
+            padding: 0px 10px;
+            background: transparent;
+            display: flex;
+
+            .expandable-menu-separator {
+              margin: 8px 6px 8px 8px;
+              padding: 0;
+              height: inherit;
+              width: 2px;
+              background-color: #f97316;
+              border-radius: 50px;
+            }
+
+            .expandable-menu-content {
+              width: 100%;
+              padding: 8px 0px;
+
+              .expandable-item {
+                background: transparent;
+                display: flex;
+                align-items: center;
+
+                &:has(.expandable-sub-item) {
+                  height: 48px;
+                }
+
+                .expandable-sub-item {
+                  color: #2C3E50;
+                  text-decoration: none;
+                  @include title2();
+                  cursor: pointer;
+                  width: 100%;
+                  padding: 10px;
+                  border-radius: 5px;
+                  display: flex;
+                  align-items: center;
+
+                  &:hover,
+                  &:focus {
+                    outline: 0;
+                    background: $sideMenuHoverBackGround;
+                    color: #2C3E50;
+                  }
+
+                  &.active {
+                    background: #ffe7d3;
+                    color: #f97316;
+                  }
+                }
+
+                .expandable-menu-item-subitem {
+                  box-shadow: none !important;
+                  background: transparent;
+                  color: $sideMenuColor;
+                  text-decoration: none;
+                  @include forceFont($font-size-sm,500);
+                  font-size: $font-size-sm;
+                  cursor: pointer;
+                  width: 100%;
+
+                  .mat-expansion-panel-header {
+                    padding: 0px;
+                    height: 48px;
+                    background: transparent;
+                    display: flex;
+                    align-items: center;
+
+                    .expandable-sub-menu-header {
+                      width: 100%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-between;
+                      border-radius: 5px;
+                      padding: 10px;
+
+                      .expandable-sub-menu-title {
+                        color: #2C3E50;
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                      }
+
+                      .expanded_submenu_icon {
+                        color: #2C3E50;
+                        transition: 300ms ease-in-out;
+                        transform: rotate(0deg);
+                        font-size: 20px;
+                        width: 20px;
+                        height: 20px;
+
+                        &.rotated {
+                          transform: rotate(180deg);
+                        }
+                      }
+                    }
+
+                    .mat-expansion-indicator::after {
+                      display: none;
+                    }
+                  }
+
+                  &.active {
+                    .mat-expansion-panel-header {
+                      .expandable-sub-menu-header {
+                        outline: 0;
+                        color: $sideMenuColor;
+                        background: #ffe7d3;
+
+                        .expandable-sub-menu-title {
+                          color: #f97316;
+                        }
+
+                        .expanded_icon {
+                          color: #f97316;
+                        }
+                      }
+                    }
+                  }
+
+                  &.open {
+                    .mat-expansion-panel-header {
+                      .expandable-sub-menu-header {
+                        background: $sideMenuHoverBackGround;
+                      }
+                    }
+                  }
+
+                  &:not(.active) {
+                    &:hover,
+                    &:focus {
+                      .mat-expansion-panel-header {
+                        .expandable-sub-menu-header {
+                          background: $sideMenuHoverBackGround;
+                        }
+                      }
+                    }
+                  }
+
+                  .mat-expansion-panel-content {
+                    width: 100%;
+
+                    .mat-expansion-panel-body {
+                      padding: 0;
+
+                      .expandable-sub-menu-body {
+                        background: transparent;
+                        display: flex;
+
+                        .expandable-sub-menu-separator {
+                          margin: 8px 4px 8px 2px;
+                          padding: 0;
+                          height: inherit;
+                          width: 2px;
+                          background-color: #f97316;
+                          border-radius: 50px;
+                        }
+
+                        .expandable-sub-menu-content {
+                          width: 100%;
+                          padding: 8px 0px;
+
+                          .expandable-sub-menu-item {
+                            background: transparent;
+
+                            .expandable-subitem {
+
+                              &:has(.expandable-sub-sub-item) {
+                                height: 48px;
+                              }
+
+                              .expandable-sub-sub-item {
+                                display: block;
+                                color: #2C3E50;
+                                text-decoration: none;
+                                @include title3();
+                                cursor: pointer;
+                                width: 100%;
+                                padding: 10px;
+                                border-radius: 5px;
+
+                                &:hover,
+                                &:focus {
+                                  outline: 0;
+                                  background: $sideMenuHoverBackGround;
+                                  color: #2C3E50;
+                                }
+
+                                &.active {
+                                  background: #ffe7d3;
+                                  color: #f97316;
+                                }
+                              }
+                            }
+                          }
+                        }
+
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .icon {
+      color: #2C3E50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      overflow: hidden;
+
+      .fontAwesome {
+        font-size: 17px;
+      }
+
+      .material {
+        font-size: 22px;
+        height: auto;
+        width: auto;
+      }
+    }
+  }
+}
+
+.simple-menu-version {
+  background: transparent;
+  color: $sideMenuColor;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: inherit;
+  padding: 0 15px 2rem 0;
+  pointer-events: none;
+}

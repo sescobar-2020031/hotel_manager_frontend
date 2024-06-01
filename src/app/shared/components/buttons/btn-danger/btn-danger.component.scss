@@ -1,0 +1,41 @@
+@import '../../../../styles/mixins';
+@import '../../../../styles/_variables.scss';
+
+btn-danger {
+  width: 100%;
+  height: 100%;
+
+  .btn_danger {
+    width: 100%;
+    height: $buttonHeight !important;
+    background-color: $dangerButtonBackGroundColor !important;
+    border: 1px solid $dangerButtonBackGroundColor !important;
+    border-radius: $buttonBorderRadius !important;
+    color: $dangerButtonFontColor !important;
+    @include title2($font-weight-default);
+    transition: border-color .5s, color .5s, background-color .5s;
+
+    &:hover {
+      background-color: $dangerButtonHoverBackGroundColor !important;
+      border-color: $dangerButtonHoverBackGroundColor !important;
+    }
+
+    &:active,
+    &.active,
+    &:focus,
+    &.focus {
+      background-color: $dangerButtonActiveBackGroundColor !important;
+      border-color: $dangerButtonActiveBackGroundColor !important;
+    }
+
+    &:disabled {
+      background-color: $buttonDisabledBackgroundColor !important;
+      border-color: $buttonDisabledBackgroundColor !important;
+      color: $buttonDisabledFontColor !important;
+    }
+
+    .icon{
+      margin-right: 5px;
+    }
+  }
+}

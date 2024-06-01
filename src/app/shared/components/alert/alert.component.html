@@ -1,0 +1,8 @@
+<div class="alert-modal">
+  <i *ngIf="icon" [ngClass]="'alert-modal-icon alert-modal-icon-' + iconColor + ' ' + icon"></i>
+  <h1 class="alert-modal-title">{{ title }}</h1>
+  <span class="alert-modal-text">{{ text }}</span>
+  <div class="alert-modal-buttons" *ngIf="!input && !select && !idname && !options && button">
+    <btn-primary label="{{button}}" id="sendForm" name="sendForm" type="submit" [mat-dialog-close]="true"></btn-primary>
+  </div>
+</div>

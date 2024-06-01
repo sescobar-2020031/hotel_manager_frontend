@@ -1,0 +1,133 @@
+// SideBar Colors
+$sideMenuBackGround: #fff;
+$sideMenuColor: #f97316;
+$sideMenuHoverBackGround: #f3f4f6;
+$sideMenuHoverFontColor: #7F8C8D;
+
+//Tables
+$tableHeaderColor: #f97316;
+$tableBodyColor: #011843;
+$tableBorderHover: #f97316;
+
+// Input
+$inputBorderColor: #CED0D6;
+$inputBoxShadowColor: 0px 2px 4px 0px rgba(0, 0, 0, 0.09);
+$inputTextColor: #f97316;
+$inputPlaceholderColor: #2C3E50;
+$inputHoverBackgroundColor: #f8f8f8;
+$inputHoverBorderColor: #c6c8ce;
+$inputHoverTextColor: #9d9fa3;
+$inputActiveBoxShadow: 0px 0px 12px 0px rgba(153, 11, 188, 0.20);
+$inputErrorColor: #FA4D57;
+$inputErrorBoxShadowColor: 0px 0px 12px 0px rgba(250, 77, 87, 0.20);
+$inputDisabledColor: #63708A;
+$inputDisabledBackgroundColor: #F5F6F8;
+$inputHoverTextSelectOption: #506f8d;
+
+// Buttons
+$buttonHeight: 48px;
+$buttonBorderRadius: 6px;
+$buttonDisabledBackgroundColor: rgba(0, 0, 0, 0.12);
+$buttonDisabledFontColor: rgba(0, 0, 0, 0.38);
+$buttonBackGroundColor: #f97316;
+$buttonFontColor: #ffffff;
+
+/* Primary Button */
+$primaryButtonBackGroundColor: #f97316;
+$primaryButtonFontColor: #ffffff;
+$primaryButtonHoverBackGroundColor: #f58e44;
+$primaryButtonActiveBackGroundColor: #ec6504;
+
+/* Secondary Button */
+$secondaryButtonBackGroundColor: #ffffff;
+$secondaryButtonFontColor: #ec6504;
+$secondaryButtonBorderColor: #ec6504;
+$secondaryButtonHoverBackGroundColor: #f3dbc9;
+$secondaryButtonActiveBackGroundColor: #f3dbc9;
+
+/* Danger Button */
+$dangerButtonBackGroundColor: #FA4D57;
+$dangerButtonFontColor: #ffffff;
+$dangerButtonHoverBackGroundColor: #f8656c;
+$dangerButtonActiveBackGroundColor: #fa3a43;
+
+// Borders
+$borderRadius: 10px;
+
+// Colors
+$banktop: #ffff;
+$bankblue: #500164;
+$bankbluedark: #011843;
+$bankblueLight: #939dae;
+$bankgreen: $bankblue;
+$aqua: #50e3c2;
+$purple: $bankblue;
+$purple2: $bankbluedark;
+$grey: #9b9b9b;
+$greyLight: #f5f6f8;
+$grey2: #f6f6f6;
+$grey3: #dbdbdb;
+$grey4: #e1e1e1;
+$grey5: #555;
+$grey7: #f0f0f0;
+$grey8: #4a4a4a;
+$red: #ff001f;
+$red2: #d0011b;
+$yellow: #f8e81c;
+$orange: #f6a623;
+$orange2: #f5a623;
+$green: #b8e986;
+$green2: #7ed321;
+$white: #ffffff;
+$black: #000;
+$blue: #04abff;
+$blue-fb: #022a6f;
+$skyblue: #990abc;
+$beige2: #fff3f4;
+
+/* General */
+$font-size-default: 18px;
+$font-weight-default: 500;
+$font-line-height-default: 18px;
+$font-letter-spacing-default: -0.45px;
+
+/* Title 1 */
+$font-size-title1: 18px;
+$font-line-height-title1: 22px;
+$font-weight-title1: 500;
+
+/* Title 2 */
+$font-size-title2: 16px;
+$font-line-height-title2: 16px;
+$font-weight-title2: 400;
+
+/* Title 3 */
+$font-size-title3: 14px;
+$font-line-height-title3: 14px;
+$font-weight-title3: 300;
+
+/* Title 4 */
+$font-size-title4: 12px;
+$font-line-height-title4: 12px;
+$font-weight-title4: 300;
+
+// Letter Spacings
+$letter-spacing-lg: 2.3px;
+$letter-spacing-md: 2.2px;
+$letter-spacing-sm: 1.8px;
+$letter-spacing-xs: 1.5px;
+$letter-spacing-xxs: 1.3px;
+$letter-spacing-xxxs: 1.1px;
+
+// Texts
+$font-family: Outfit, Roboto, sans-serif; 
+$font-size-xxxlg: 57px;
+$font-size-xxlg: 40px;
+$font-size-xlg: 32px;
+$font-size-lg: 28px;
+$font-size-md: 22px;
+$font-size-md3: 18px;
+$font-size-md2: 16px;
+$font-size-sm: 14px;
+$font-size-xs: 12px;
+$font-size-xxs: 9px;

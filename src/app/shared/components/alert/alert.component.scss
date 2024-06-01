@@ -1,0 +1,51 @@
+@import '../../../styles/_variables.scss';
+@import '../../../styles/_mixins';
+
+.alert-modal {
+  padding: 2rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  min-width: 20vw;
+  max-width: 80vw;
+
+  .alert-modal-title {
+    @include title1();
+    color: #2C3E50;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .alert-modal-text {
+    color: #7F8C8D;
+    display: block;
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+
+  .alert-modal-icon {
+    display: block;
+    font-size: 100px;
+    text-align: center;
+
+    &.alert-modal-icon-success {
+      color: #2ab727;
+    }
+
+    &.alert-modal-icon-blue {
+      color: $purple
+    }
+
+
+    &.alert-modal-icon-failure {
+      color: $red;
+    }
+  }
+
+  .mat-icon {
+    font-size: 1.7rem;
+    height: auto;
+    width: auto;
+  }
+}

@@ -1,0 +1,146 @@
+@import '../../../../../styles/_variables.scss';
+@import '../../../../../styles/_mixins.scss';
+
+select-input {
+  .mat-mdc-form-field {
+    .mat-mdc-text-field-wrapper {
+      &:hover {
+        &:not(.mdc-text-field--disabled) {
+          &:not(.mdc-text-field--invalid) {
+            &:not(.mdc-text-field--focused) {
+              .mat-mdc-select-arrow-wrapper{
+                .mat-mdc-select-arrow {
+                  color: $inputHoverTextColor !important;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &:not(.mdc-text-field--disabled) {
+        .mat-mdc-select-arrow {
+          color: $inputBorderColor !important;
+        }
+
+        mat-select{
+          .mat-mdc-select-value-text{
+            color: $inputPlaceholderColor !important;
+          }
+        }
+      }
+
+      &.mdc-text-field--focused {
+        .mat-mdc-select-arrow {
+          color: $inputTextColor !important;
+        }
+      }
+
+      &.mdc-text-field--disabled {
+        .mat-mdc-select-arrow {
+          color: $inputDisabledColor !important;
+        }
+      }
+
+      &.mdc-text-field--invalid {
+        .mat-mdc-select-arrow {
+          color: $inputErrorColor !important;
+        }
+      }
+
+      .mat-mdc-select-value-text{
+        @include title2($font-weight-default);
+      }
+
+      .mat-mdc-select-placeholder{
+        @include title2($font-weight-default);
+      }
+    }
+  }
+}
+
+mat-option{
+  .content_select{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .image-container{
+      background-color: #e3e3e3;
+      padding: 5px;
+      border-radius: 15px;
+
+      .image{
+        height: 20px;
+        width: 20px;
+        object-fit: scale-down;
+      }
+    }
+  }
+
+  .mdc-list-item__primary-text{
+    @include forceFont($font-size-title2, $font-weight-default, $font-line-height-title2);
+    color: $inputPlaceholderColor !important;
+  }
+
+  &.mdc-list-item--selected{
+    .mdc-list-item__primary-text{
+      color: $inputTextColor !important;
+    }
+  }
+
+  &.mdc-list-item--disabled{
+    .mdc-list-item__primary-text{
+      color: $inputDisabledColor !important;
+    }
+  }
+
+  &:hover{
+    &:not(.contains-mat-select-search){
+      border: 1px solid $inputTextColor !important;
+      border-radius: 10px;
+    }
+
+    &:not(.mdc-list-item--selected){
+      .mdc-list-item__primary-text{
+        color: $inputHoverTextSelectOption !important;
+      }
+    }
+  }
+
+  &.mat-mdc-option-multiple{
+    mat-pseudo-checkbox{
+      &.mat-pseudo-checkbox-checked{
+        background-color: #990bbc !important;
+
+        &::after{
+          color: #fff !important;
+        }
+      }
+    }
+  }
+
+  mat-pseudo-checkbox{
+    &::after{
+      color: #990bbc !important;
+    }
+  }
+
+  ngx-mat-select-search {
+    .mat-select-search-inner{
+      input {
+        @include forceFont($font-size-title2, $font-weight-default, $font-line-height-title2);
+        color: $inputPlaceholderColor !important;
+
+        &::placeholder{
+          @include forceFont($font-size-title2, $font-weight-default, $font-line-height-title2);
+          color: $inputPlaceholderColor !important;
+        }
+      }
+    }
+    .mat-select-search-no-entries-found{
+      @include forceFont($font-size-title2, $font-weight-default, $font-line-height-title2);
+      color: $inputPlaceholderColor !important;
+    }
+  }
+}

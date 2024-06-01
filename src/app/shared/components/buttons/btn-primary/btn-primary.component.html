@@ -1,0 +1,25 @@
+<button
+  class="btn_primary {{classButton}}"
+  #btnRef
+  mat-flat-button
+  [matMenuTriggerFor]="menu"
+  [disabled]="disabled"
+  [id]="id"
+  [name]="name"
+  [type]="type"
+  (blur)="handleBlur($event)"
+  (focus)="handleFocus($event)"
+  (keydown)="handleKeyDown($event)"
+  (keyup)="handleKeyUp($event)"
+  (keypress)="handleKeyPress($event)"
+  (input)="handleInput($event)"
+  (change)="handleChange($event)"
+  (click)="handleClick($event)"
+  (dblclick)="handleDblClick($event)"
+  (mousedown)="handleMouseDown($event)"
+  (mouseup)="handleMouseUp($event)"
+>
+  <i class="icon {{icon}}"></i>
+  {{label}}
+  <ng-content></ng-content>
+</button>

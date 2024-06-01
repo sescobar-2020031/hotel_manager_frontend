@@ -1,0 +1,37 @@
+<div class="register-container">
+    <div class="register-box">
+        <div class="register-form">
+            <div class="register-container">
+                <div class="header">
+                    <h1>Bienvenido!</h1>
+                    <p>Registrate</p>
+                </div>
+                <form [formGroup]="form" (ngSubmit)="register()">
+                    <text-input id="username" name="username" label="Nombre de usuario"
+                        placeholder="Escribe el nombre de usuario" icon="fa-regular fa-user" [required]="true"
+                        [validateText]="true" formControlName="username" />
+                    <text-input id="name" name="name" label="Nombre Completo" placeholder="Escribe tu nombre completo"
+                        icon="fa-regular fa-user" [required]="true" [validateText]="true" formControlName="name"/>
+                    <text-input class="input" id="identity_document" name="identity_document" label="DPI"
+                        placeholder="Escribe tu DPI" icon="fa-regular fa-user" [required]="true" [validateText]="true"
+                        [onlyNumbers]="true" formControlName="identity_document"/>
+                    <text-input class="input" id="phone" name="phone" label="Teléfono" placeholder="Escribe tu teléfono"
+                        icon="fa-regular fa-user" [required]="true" [validateText]="true" [onlyNumbers]="true" [maxLength]="8" [minLength]="8"
+                        [errorMessages]="{maxlength: 'Por favor coloca un teléfono valido', minlength: 'Por favor coloca un teléfono valido'}"
+                        formControlName="phone"/>
+                    <text-input class="input" id="address" name="address" label="Dirección" placeholder="Escribe tu dirección"
+                        icon="fa-regular fa-user" [required]="true" [validateText]="true" formControlName="address"/>
+                    <text-input class="input" id="email" name="email" label="Correo" placeholder="Escribe tu email"
+                        icon="fa-regular fa-user" [required]="true" [validateEmail]="true" formControlName="email"/>
+                    <password-input class="input" id="password" name="password" label="Contraseña"
+                        placeholder="Escribe tu contraseña" icon="fa-solid fa-lock" [required]="true" formControlName="password"/>
+                    <btn-primary label="Registrate" id="sendForm" name="sendForm" type="submit" [disabled]="loading || !form.valid"/>
+                    <p class="signin-link">Ya tienes una cuenta? <a routerLink="/home/login">Inicia sesión</a></p>
+                </form>
+            </div>
+        </div>
+        <div class="register-image">
+            <img src="../../../../../assets/images/Register Background.png" alt="Illustration">
+        </div>
+    </div>
+</div>

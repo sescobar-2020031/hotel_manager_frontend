@@ -1,0 +1,119 @@
+<p-table
+  #dt
+  [value]="data"
+  class="basicTable {{filters ? 'filters' :''}} {{class}}"
+  [tableStyle]="{ 'min-width': '50rem' }"
+  [dataKey]="dataKey"
+  [rows]="rows"
+  [showCurrentPageReport]="showCurrentPageReport"
+  [rowsPerPageOptions]="rowsPerPageOptions"
+  [loading]="laoding"
+  [paginator]="paginator"
+  [globalFilterFields]="globalFilterFields"
+  [(selection)]="selectedValues"
+  [scrollable]="true"
+  [scrollHeight]="scrollHeight"
+  (selectionChange)="changeSelection()"
+  [currentPageReportTemplate]="currentPageReportTemplate"
+  (onPage)="updateView()"
+  (onFilter)="updateView()"
+>
+  <ng-template *ngIf="globalFilter" pTemplate="caption">
+    <div class="navBar_table_selected">
+      <span class="p-input-icon-left ml-auto">
+        <i class="pi pi-search"></i>
+        <input pInputText type="text"
+          (input)="applyFilterGlobal($event, 'contains')"
+          [placeholder]="globalFilterPlaceholder" />
+      </span>
+      <div
+        *ngIf="authorization"
+        [class.buttonsControl]="isDataSelected"
+        [class.showOff]="!isDataSelected"
+      >
+        <btn-primary
+          label="Autorizar"
+          icon="fa-sharp fa-solid fa-check"
+          class="buttonControl authorizationButtons"
+          (onClick)="handleAuthorize()"
+        />
+        <btn-danger
+          label="Cancelar"
+          icon="fa-sharp fa-solid fa-xmark"
+          class="buttonControl authorizationButtons"
+          (onClick)="handleCancel()"
+        />
+      </div>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+      <tr id="titles">
+          <th *ngIf="authorization" id="selected" style="min-width:50px" class="center">
+            <div class="cellToProve">
+              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </div>
+          </th>
+          <th *ngFor="let option of options" id="{{option.headerId}}"
+          [style]="option.styleTitleHeader" class="{{option.headerAlign}}">{{option.headerLabel}}</th>
+      </tr>
+      <tr id="filter" *ngIf="filters">
+          <th *ngIf="authorization" id="selectedFilter" class="center">
+            -
+          </th>
+          <th *ngFor="let option of options" id="{{option.headerId}}Filter">
+
+            <p-columnFilter *ngIf="option.filterType == 'text'" placeholder="{{option.filterPlaceHolder}}" type="text" field="{{option.keyValue}}" />
+
+            <p-columnFilter *ngIf="option.filterType == 'numeric'" placeholder="{{option.filterPlaceHolder}}" type="numeric" field="{{option.keyValue}}"
+            [maxFractionDigits]="option.filterFractionDigits" locale="es-GT" />
+
+            <p-columnFilter *ngIf="option.filterType == 'select'"
+              field="{{option.keyValue}}" matchMode="equals" [showMenu]="false">
+              <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                <p-dropdown [ngModel]="value" [options]="option.filterOptions"
+                  (onChange)="filter($event.value)"
+                  placeholder="{{option.filterPlaceHolder}}" [showClear]="true">
+                  <ng-template let-item pTemplate="item">
+                    <p-tag [value]="item"
+                      [severity]="option.getSeverityOptions?.(item)">
+                    </p-tag>
+                  </ng-template>
+                </p-dropdown>
+              </ng-template>
+            </p-columnFilter>
+          </th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-bodyOption>
+      <tr #rowReference (click)="handleClickRow(bodyOption)" class="fila">
+        <td *ngIf="authorization" class="center">
+          <p-tableCheckbox [value]="bodyOption"></p-tableCheckbox>
+        </td>
+        <td *ngFor="let option of options; let i = index">
+          <div class="cell {{option.valueAlign}}" *ngIf="option.filterType != 'button'">
+            <div *ngIf="option.image">
+              <div class="image-container">
+                <img alt="image-table" src="data:image/png;base64,{{bodyOption | getValue:option.image}}" width="20" height="20" class="vertical-align-middle image" />
+              </div>
+            </div>
+            <div *ngIf="option.image">
+              &nbsp;
+            </div>
+            {{ bodyOption | getValue:option.keyValue:option.setFormatValue }}
+          </div>
+          <div class="cell {{option.valueAlign}}" *ngIf="option.filterType == 'button'">
+            <div class="image-container" (click)="handleClickButton(i, bodyOption, $event)" tippy [tippyOptions]="getToolTipInfomation(option.toolTipButtonIcon)">
+              <button class="button">
+                <i *ngIf="option.buttonIcon" class="{{option.buttonIcon}}"></i>
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="10">{{emptymessage}}</td>
+    </tr>
+  </ng-template>
+</p-table>

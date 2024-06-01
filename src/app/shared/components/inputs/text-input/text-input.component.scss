@@ -1,0 +1,210 @@
+@import '../../../../styles/_variables.scss';
+@import '../../../../styles/_mixins.scss';
+
+text-input,
+password-input,
+select-input {
+  cursor: text;
+  height: 100%;
+
+  .mat-mdc-form-field {
+    width: 100%;
+
+    .mat-mdc-text-field-wrapper {
+      border-radius: $borderRadius !important;
+      background-color: $white !important;
+      max-height: $buttonHeight;
+      border: 1px solid $inputBorderColor !important;
+      box-shadow: $inputBoxShadowColor !important;
+
+      &:hover {
+        background-color: $inputHoverBackgroundColor !important;
+        border-color: $inputHoverBorderColor !important;
+
+        &:not(.mdc-text-field--disabled) {
+          .mdc-floating-label {
+            color: $inputHoverTextColor !important;
+          }
+
+          i {
+            color: $inputHoverTextColor;
+          }
+
+          .mat-mdc-form-field-text-prefix {
+            span {
+              color: $inputHoverTextColor !important;
+            }
+          }
+        }
+      }
+
+      &:not(.mdc-text-field--disabled) {
+        .mdc-floating-label {
+          color: $inputBorderColor !important;
+        }
+
+        .mat-mdc-form-field-text-prefix {
+          span {
+            color: $inputBorderColor !important;
+          }
+        }
+
+        i {
+          color: $inputBorderColor;
+        }
+
+        .mdc-text-field__input {
+          color: $inputPlaceholderColor !important;
+          caret-color: $inputTextColor !important;
+        }
+      }
+
+      &.mdc-text-field--focused {
+
+        .mat-mdc-form-field-flex {
+          .mat-mdc-form-field-infix {
+            .mdc-floating-label {
+              color: $inputTextColor !important;
+            }
+          }
+        }
+
+        .mat-mdc-form-field-flex {
+          .mat-mdc-form-field-text-prefix {
+            span {
+              color: $inputTextColor !important;
+            }
+          }
+        }
+
+        i {
+          color: $inputTextColor !important;
+        }
+
+        border: 1px solid $inputTextColor !important;
+        box-shadow: $inputActiveBoxShadow;
+      }
+
+      &.mdc-text-field--disabled {
+        background-color: $inputDisabledBackgroundColor !important;
+
+        .mat-mdc-form-field-flex {
+          .mat-mdc-form-field-infix {
+            .mdc-floating-label {
+              color: $inputDisabledColor !important;
+            }
+          }
+        }
+
+        i {
+          color: $inputDisabledColor !important;
+        }
+
+        .mat-mdc-form-field-flex {
+          .mat-mdc-form-field-text-prefix {
+            span {
+              color: $inputDisabledColor !important;
+            }
+          }
+        }
+
+        .mdc-text-field__input {
+          color: $inputDisabledColor !important;
+          caret-color: $inputDisabledColor !important;
+        }
+
+        .mat-mdc-select-min-line{
+          color: $inputDisabledColor !important;
+        }
+
+        border: 1px solid $inputBorderColor !important;
+        box-shadow: $inputBoxShadowColor;
+      }
+
+      &.mdc-text-field--invalid {
+        &:not(.mdc-text-field--disabled) {
+          .mat-mdc-form-field-flex {
+            .mat-mdc-form-field-infix {
+              .mdc-floating-label {
+                color: $inputErrorColor !important;
+              }
+            }
+          }
+
+          .mat-mdc-form-field-flex {
+            .mat-mdc-form-field-text-prefix {
+              span {
+                color: $inputErrorColor !important;
+              }
+            }
+          }
+
+          i {
+            color: $inputErrorColor !important;
+          }
+
+          border: 1px solid $inputErrorColor !important;
+          box-shadow: $inputErrorBoxShadowColor;
+        }
+      }
+
+      +.mat-mdc-form-field-subscript-wrapper {
+        .mat-mdc-form-field-error-wrapper {
+          .mat-mdc-form-field-error {
+            @include title2($font-weight-default);
+            color: $inputErrorColor !important;
+            font-size: $font-size-sm !important;
+          }
+        }
+      }
+
+      .mdc-floating-label {
+        &:not(.mdc-floating-label--float-above) {
+          top: 25px !important;
+        }
+
+        @include title2($font-weight-default);
+      }
+
+      .mat-mdc-input-element {
+        @include title2($font-weight-default);
+      }
+
+      .mat-mdc-form-field-focus-overlay {
+        opacity: 0 !important;
+      }
+    }
+
+    .mdc-line-ripple {
+      display: none !important;
+    }
+
+    mat-form-field input::placeholder {
+      color: $inputPlaceholderColor !important;
+      @include title2($font-weight-default);
+    }
+
+    mat-hint {
+      @include title3($font-weight-default);
+      color: $inputHoverBorderColor;
+    }
+
+    .mat-mdc-form-field-text-prefix {
+      position: relative !important;
+      top: -12px !important;
+      left: -8px !important;
+      height: 48px !important;
+
+      span {
+        height: inherit;
+        display: flex;
+        align-items: center;
+        @include title2($font-weight-default);
+
+        i {
+          color: $inputTextColor;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<div class="register-container">
+    <div class="register-box">
+        <div class="register-image">
+            <img src="../../../../../assets/images/Login Background.png" alt="Illustration">
+        </div>
+        <div class="register-form">
+            <div class="register-container">
+                <div class="header">
+                    <h1>Bienvenido!</h1>
+                    <p>Inicia sesión</p>
+                </div>
+                <form [formGroup]="form" (ngSubmit)="login()">
+                    <text-input class="input" id="email" name="email" label="Correo" placeholder="Escribe tu email"
+                        icon="fa-regular fa-user" [required]="true" [validateEmail]="true" formControlName="email">
+                    </text-input>
+                    <password-input class="input" id="password" name="password" label="Contraseña"
+                        placeholder="Escribe tu contraseña" icon="fa-solid fa-lock" [required]="true" formControlName="password">
+                    </password-input>
+                    <btn-primary label="Ingresar" id="sendForm" name="sendForm" type="submit"
+                    [disabled]="loading || !form.valid" ></btn-primary>
+                    <p class="signin-link">No tienes una cuenta? <a routerLink="/home/register">Registrate</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<mat-form-field class="text_input" appearance="fill">
+  <mat-label>{{ label }}</mat-label>
+  <input matInput
+    #inputRef
+    [id]="id"
+    [name]="name"
+    [placeholder]="placeholder"
+    [formControl]="inputControl"
+    [attr.maxlength]="maxLengthStrict"
+    (blur)="handleBlur($event)"
+    (focus)="handleFocus($event)"
+    (keydown)="handleKeyDown($event)"
+    (keyup)="handleKeyUp($event)"
+    (keypress)="handleKeyPress($event)"
+    (input)="handleInput($event)"
+    (paste)="handlePaste($event)"
+    (change)="handleChange($event)"
+    (click)="handleClick($event)"
+    (dblclick)="handleDblClick($event)"
+    (mousedown)="handleMouseDown($event)"
+    (mouseup)="handleMouseUp($event)"
+  >
+  <span *ngIf="icon" matTextPrefix><i class="{{icon}}"></i></span>
+  <span *ngIf="textPrefix" matTextPrefix>{{textPrefix}}</span>
+  <mat-hint>{{hint}}</mat-hint>
+  <mat-error class="required" *ngIf="inputControl.hasError('required')">
+    {{ errorMessages["required"] || 'Este campo es obligatorio.' }}
+  </mat-error>
+  <mat-error *ngIf="inputControl.hasError('email')">
+    {{ errorMessages["email"] || 'Por favor introduce un email válido.' }}
+  </mat-error>
+  <mat-error *ngIf="inputControl.hasError('minlength')">
+    {{ errorMessages["minlength"] || 'Este campo debe tener al menos ' + (inputControl.errors?.["minlength"]?.requiredLength  ?? "indefinido") + ' caracteres.' }}
+  </mat-error>
+  <mat-error *ngIf="inputControl.hasError('maxlength')">
+    {{ errorMessages["maxlength"] || 'Este campo debe tener máximo ' + (inputControl.errors?.["maxlength"]?.requiredLength  ?? "indefinido") + ' caracteres.' }}
+  </mat-error>
+  <mat-error *ngIf="inputControl.hasError('pattern')">
+    {{ errorMessages["pattern"] || 'El formato no es válido.' }}
+  </mat-error>
+  <mat-error *ngIf="inputControl.hasError('min')">
+    {{ errorMessages["min"] || 'El valor mínimo es '+(inputControl.errors?.["min"]?.min ?? "indefinido") }}
+  </mat-error>
+  <mat-error *ngIf="inputControl.hasError('max')">
+    {{ errorMessages["max"] || 'El valor máximo es '+(inputControl.errors?.["max"]?.max ?? "indefinido")}}
+  </mat-error>
+</mat-form-field>
+

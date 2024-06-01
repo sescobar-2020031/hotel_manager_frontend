@@ -1,0 +1,52 @@
+#navbar_logged_out {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 60px;
+
+    .hotelname {    
+        padding: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 8px;
+        text-decoration: none;
+        cursor: pointer;
+
+        span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #3d4b58;
+            line-height: 1.6;
+        }
+
+        &:hover {
+            background-color: #f3f4f6;
+        }
+    }
+
+    .p-menubar {
+        justify-content: space-between;
+        background: none;
+        border: none;
+
+        .p-menubar-end {
+            margin-left: 0px;
+        }
+    }
+
+    .active-link {
+        font-weight: bold;
+        color: #f97316;
+    }
+
+    .button_navbar{
+        button {
+            border-radius: 10px;
+        }
+    }
+
+}

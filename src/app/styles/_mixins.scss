@@ -1,0 +1,77 @@
+@mixin button($color, $background, $border, $important: null) {
+  background-color: $background;
+  border-color: $border;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  color: $color;
+  font-size: $font-size-xs;
+  font-weight: bold;
+  letter-spacing: $letter-spacing-xxs;
+  padding: 10px;
+  transition: border-color .5s, color .5s, background-color .5s;
+
+  &:hover {
+    background-color: rgba($background, .6) $important;
+    border-color: rgba($border, .7) $important;
+    color: $color $important;
+  }
+
+  &:active,
+  &.active,
+  &:focus,
+  &.focus {
+    background-color: $background $important;
+    border-color: $border $important;
+    color: $color $important;
+  }
+}
+
+// Titles
+@mixin title1($font-weight: $font-weight-title1) {
+  font-family: $font-family;
+  font-size: $font-size-title1;
+  font-weight: $font-weight;
+  line-height: $font-line-height-title1;
+  letter-spacing: $font-letter-spacing-default;
+}
+
+@mixin title2($font-weight: $font-weight-title2) {
+  font-family: $font-family;
+  font-size: $font-size-title2;
+  font-weight: $font-weight;
+  line-height: $font-line-height-title2;
+  letter-spacing: $font-letter-spacing-default;
+}
+
+@mixin title3($font-weight: $font-weight-title3) {
+  font-family: $font-family;
+  font-size: $font-size-title3;
+  font-weight: $font-weight;
+  line-height: $font-line-height-title3;
+  letter-spacing: $font-letter-spacing-default;
+}
+
+@mixin title4($font-weight: $font-weight-title4) {
+  font-family: $font-family;
+  font-size: $font-size-title4;
+  font-weight: $font-weight;
+  line-height: $font-line-height-title4;
+  letter-spacing: $font-letter-spacing-default;
+}
+
+@mixin forceFont($font-size-p: $font-size-default, $font-weight: $font-weight-default, $font-line-height-p: $font-line-height-default) {
+  font-size: $font-size-p !important;
+  font-weight: $font-weight !important;
+  line-height: $font-line-height-p !important;
+  font-family: $font-family !important;
+  letter-spacing: $font-letter-spacing-default !important;
+}
+
+@mixin forceButton($height: $height) {
+  btn-primary {
+    button {
+      height: $height !important;
+    }
+  }
+}

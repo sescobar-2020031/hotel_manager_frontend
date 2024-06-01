@@ -1,0 +1,130 @@
+<section id="public_home">
+  <section id="header">
+    <div class="container">
+      <div class="left_container">
+        <div class="texts_container">
+          <span class="principal_title">Encuentra tu refugio perfecto</span>
+          <span class="secundary_title">Hoteles únicos, experiencias inolvidables</span>
+          <p-button label="Buscar Hotel" [rounded]="true" severity="warning" class="search_hotel" />
+        </div>
+      </div>
+      <div class="right_container">
+        <div class="image_container">
+          <p-carousel [value]="hotelImages" [numVisible]="1" [numScroll]="1" orientation="horizontal"
+            autoplayInterval="3000">
+            <ng-template let-product pTemplate="item">
+              <img src="{{product.url}}" [alt]="product.description" class="w-full border-round" />
+            </ng-template>
+          </p-carousel>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="about_us">
+    <div class="about_container">
+      <div class="image_container">
+        <img src="https://img.freepik.com/free-photo/medium-shot-woman-talking-phone_23-2149963911.jpg"
+          alt="Reception Hotel" />
+        <div class="info_box">
+          <div class="info_content">
+            <span>Hotel Manager</span>
+            <p>Servicio 24 horas</p>
+            <p>Calificación ⭐⭐⭐⭐⭐</p>
+          </div>
+        </div>
+      </div>
+      <div class="text_container">
+        <h3>Sobre nosotros</h3>
+        <h2>Las mejores vacaciones comienzan <span class="highlight">aquí.</span></h2>
+        <p>
+          En Hotel Manager, creemos que las mejores vacaciones comienzan con las mejores experiencias. Nuestra
+          plataforma
+          cuenta con hoteles que ofrecen habitaciones lujosas, opciones gastronómicas exquisitas y una variedad de
+          actividades recreativas para hacer de tu estancia algo verdaderamente inolvidable. Ya sea que estés buscando
+          un retiro relajante o unas vacaciones llenas de aventura, tenemos algo para todos.
+        </p>
+        <p>
+          Reserva tu estancia con nosotros hoy y descubre por qué nuestros usuarios nos califican con ⭐⭐⭐⭐⭐.
+          Experimenta la combinación perfecta de comodidad, conveniencia y servicio excepcional con Hotel Manager.
+          Esperamos ayudarte a encontrar y reservar tu próxima gran experiencia de viaje.
+        </p>
+        <p-button label="Comienza tu experiencia" [rounded]="true" severity="warning" class="start_experenci_hotel" />
+      </div>
+    </div>
+  </section>
+  <section id="steps_to_book">
+    <div class="steps_container">
+      <div class="steps_text">
+        <h2>Reserva tu estancia perfecta en tres sencillos pasos</h2>
+        <p>Con Hotel Manager, encontrar y reservar tu hotel ideal nunca ha sido tan fácil. Sigue estos simples pasos
+          para garantizar una experiencia de viaje inolvidable.</p>
+        <div class="step">
+          <div class="step_number">01</div>
+          <div class="step_content">
+            <h3>Encuentra tu hotel ideal</h3>
+            <p>Explora nuestra amplia selección de hoteles en nuestra aplicación. Filtra por ubicación, precio y
+              servicios para encontrar el que mejor se adapte a tus necesidades.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step_number">02</div>
+          <div class="step_content">
+            <h3>Realiza tu reserva</h3>
+            <p>Selecciona tu hotel preferido y completa el proceso de reserva de manera rápida y segura. Recibirás una
+              confirmación inmediata de tu reserva en tu correo electrónico.</p>
+          </div>
+        </div>
+        <div class="step" style="margin-bottom: 0px;">
+          <div class="step_number">03</div>
+          <div class="step_content">
+            <h3>Haz el check-in</h3>
+            <p style="margin-bottom: 0px;">Dirígete al hotel con tu confirmación de reserva y disfruta de tu estancia.
+              Nuestro servicio de atención
+              al cliente está disponible las 24 horas para cualquier consulta.</p>
+          </div>
+        </div>
+      </div>
+      <div class="steps_image">
+        <img src="https://www.guatemala.com/fotos/2023/10/Gecko-Hotel-1.jpg" alt="Hotel" />
+      </div>
+    </div>
+  </section>
+  <section id="customer_testimonials">
+    <div class="testimonial_container">
+      <h2>Lo que dicen nuestros clientes</h2>
+      <mat-card class="testimonial_card" *ngFor="let testimonial of testimonials; let i = index"
+        [ngClass]="{'active': i === activeIndex}">
+        <mat-card-header>
+          <div mat-card-avatar class="testimonial_avatar"
+            [ngStyle]="{'background-image': 'url(' + testimonial.image + ')'}"></div>
+          <mat-card-title>{{ testimonial.name }}</mat-card-title>
+          <mat-card-subtitle>{{ testimonial.rating }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ testimonial.comment }}</p>
+        </mat-card-content>
+      </mat-card>
+      <div class="testimonial_navigation">
+        <button mat-icon-button (click)="previousTestimonial()" aria-label="Previous testimonial">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-icon-button (click)="nextTestimonial()" aria-label="Next testimonial">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+    </div>
+  </section>
+  <section id="contact_us">
+    <div class="contact_container">
+      <h2>¿Tiene alguna pregunta?</h2>
+      <h2>Déjanos ayudarte</h2>
+      <form>
+        <mat-form-field appearance="outline" class="email_input">
+          <mat-label>Correo Electrónico</mat-label>
+          <input matInput placeholder="TuCorreoElectronico@gmail.com" name="email">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Enviar</button>
+      </form>
+    </div>
+  </section>
+</section>

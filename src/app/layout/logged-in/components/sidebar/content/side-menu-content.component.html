@@ -1,0 +1,79 @@
+<hotelmger-condense #condenseMenu [ngClass]="condenseMenu.menuState">
+  <!-- Side Menu Content  -->
+  <mat-nav-list class="menu-item" *ngFor="let item of items">
+    <ng-container *ngIf="item.link; else dropdown">
+      <div *ngIf="item.showForRole" class="simple-menu">
+        <a class="simple-menu-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"
+          [routerLink]="item.link" *ngIf="item.link">
+          <div class="icon" *ngIf="item.iconType">
+            <mat-icon *ngIf="item.iconType == 'Material'" class="material" mat-list-icon>{{item.icon}}</mat-icon>
+            <i *ngIf="item.iconType == 'FontAwesome'" [class]="'fontAwesome ' + item.icon"></i>
+          </div>
+          <div class="menu-item-title">
+            <span>{{item.name}}</span>
+            <span *ngIf="item.description">{{item.description}}</span>
+          </div>
+        </a>
+      </div>
+    </ng-container>
+    <ng-template #dropdown>
+      <mat-expansion-panel *ngIf="item.showForRole && (item.isVisible | async)" class="expandable-menu-item"
+        [routerLinkActive]="['active']" [ngClass]="{'open' : item.showSubmenu}">
+        <mat-expansion-panel-header (click)="item.showSubmenu = !item.showSubmenu">
+          <div class="expandable-menu-header">
+            <div class="expandable-menu-title">
+              <div class="icon" *ngIf="item.iconType">
+                <mat-icon *ngIf="item.iconType == 'Material'" mat-list-icon>{{item.icon}}</mat-icon>
+                <i *ngIf="item.iconType == 'FontAwesome'" [class]="'fontAwesome ' + item.icon"></i>
+              </div>
+              <div class="menu-item-title">
+                <span>{{item.name}}</span>
+                <span class="description" *ngIf="item.description">{{item.description}}</span>
+              </div>
+            </div>
+            <mat-icon class="expanded_icon" [ngClass]="{'rotated' : item.showSubmenu}">expand_more</mat-icon>
+          </div>
+        </mat-expansion-panel-header>
+
+        <div class="expandable-menu-body">
+          <hr class="expandable-menu-separator">
+          <div class="expandable-menu-content">
+            <div class="expandable-item" *ngFor="let subItem of item.subItems">
+              <a *ngIf="subItem.link && item.showForRole" class="expandable-sub-item" [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{exact: true}" [routerLink]="subItem.link">
+                <span>{{subItem.name}}</span>
+              </a>
+
+              <mat-expansion-panel *ngIf="!subItem.link && item.showForRole" class="expandable-menu-item-subitem"
+                [routerLinkActive]="['active']" [ngClass]="{'open' : subItem.showSubmenu}">
+                <mat-expansion-panel-header (click)="subItem.showSubmenu = !subItem.showSubmenu">
+                  <div class="expandable-sub-menu-header">
+                    <div class="expandable-sub-menu-title">
+                      <span>{{subItem.name}}</span>
+                    </div>
+                    <mat-icon class="expanded_submenu_icon"
+                      [ngClass]="{'rotated' : subItem.showSubmenu}">expand_more</mat-icon>
+                  </div>
+                </mat-expansion-panel-header>
+
+                <div class="expandable-sub-menu-body">
+                  <hr class="expandable-sub-menu-separator">
+                  <div class="expandable-sub-menu-content">
+                    <div class="expandable-sub-menu-item">
+                      <div class="expandable-subitem" *ngFor="let subSubItem of subItem.subItems">
+                        <a class="expandable-sub-sub-item" *ngIf="item.showForRole" [routerLinkActive]="['active']"
+                          [routerLinkActiveOptions]="{exact: true}" [routerLink]="subSubItem.link">
+                          <span>{{subSubItem.name}}</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-expansion-panel>
+            </div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </ng-template>
+  </mat-nav-list>
+</hotelmger-condense>

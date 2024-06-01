@@ -1,0 +1,82 @@
+<section id="about-us">
+    <section class="header">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Digital Hotel Reservations</h1>
+                <p>
+                    Creemos en la transformación digital para hacer que las reservas de hotel sean accesibles y convenientes. Nuestra misión es permitir a los usuarios reservar habitaciones en diversos hoteles de manera rápida y eficiente.
+                </p>                
+            </div>
+            <div class="hero-image">
+                <img src="https://www.smarttravel.news/wp-content/uploads/2024/01/Captura-de-pantalla-2024-01-22-a-las-18.40.14.png" alt="Hotel Transformation">
+            </div>
+        </section>
+        <section class="stats">
+            <div class="stat-item">
+                <h2>5</h2>
+                <p>Años de Experiencia</p>
+            </div>
+            <div class="stat-item">
+                <h2>100+</h2>
+                <p>Hoteles Asociados</p>
+            </div>
+            <div class="stat-item">
+                <h2>1M+</h2>
+                <p>Reservas Realizadas</p>
+            </div>
+            <div class="stat-item">
+                <h2>98%</h2>
+                <p>Satisfacción del Cliente</p>
+            </div>
+        </section>
+    </section>
+    <section class="workflow-promo">
+        <div class="promo-content">
+            <div class="promo-images">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZXXXwpWShqInL3VPvptM5ylFziDqn7d_g8A&s" alt="Hotel 1">
+                <img src="https://img.remediosdigitales.com/039435/in-villa-breakfast/1366_2000.jpeg" alt="Hotel 2">
+            </div>
+            <div class="promo-text">
+                <h2>Impulsamos tu Experiencia de Reserva</h2>
+                <p>
+                    Encuentra y reserva habitaciones en hoteles de todo el mundo con nuestra plataforma intuitiva y fácil de usar. Nuestro objetivo es brindarte la mejor experiencia de reserva, adaptada a tus necesidades.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="workflow-speed">
+        <h2>Optimiza tu Proceso de Reserva</h2>
+        <p>
+            Mejora tu productividad y agiliza tus reservas con nuestras herramientas avanzadas y recursos digitales. Toma decisiones informadas y alcanza tus objetivos de viaje con mayor eficiencia utilizando nuestra plataforma.
+        </p>
+        <div class="stats">
+            <div class="stat-item">
+                <h2>50,000+</h2>
+                <p>Usuarios Activos</p>
+            </div>
+            <div class="stat-item">
+                <h2>95%</h2>
+                <p>Satisfacción del Cliente</p>
+            </div>
+            <div class="stat-item">
+                <h2>10M+</h2>
+                <p>Reservas Gestionadas</p>
+            </div>
+        </div>
+    </section>
+    <section class="members-container">
+        <h2>Nuestro Equipo</h2>
+        <div class="members-list">
+            <div class="member" *ngFor="let member of members">
+                <img [src]="member.photo" alt="{{ member.name }}">
+                <h3>{{ member.name }}</h3>
+                <p>{{ member.role }}</p>
+                <div class="social-icons">
+                    <a *ngFor="let icon of member.social" [href]="icon.link" target="_blank">
+                        <i [class]="'pi pi-' + icon.type"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

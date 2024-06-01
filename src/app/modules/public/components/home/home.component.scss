@@ -1,0 +1,319 @@
+#public_home {
+    #header {
+        background-color: #f2f9ff;
+
+        .container {
+            display: flex;
+
+            .left_container {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                margin-left: 5vw;
+
+                .texts_container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2rem;
+
+                    .principal_title {
+                        font-size: 5rem;
+                        font-weight: 700;
+                        color: #2C3E50;
+                        line-height: 1.2;
+                    }
+
+                    .secundary_title {
+                        font-size: 2rem;
+                        font-weight: 400;
+                        color: #7F8C8D;
+                        line-height: 1.4;
+                    }
+
+                    .search_hotel {
+                        button {
+                            width: 25%;
+                            border-radius: 1rem;
+                        }
+                    }
+                }
+
+            }
+
+            .right_container {
+                flex: 1;
+                display: flex;
+                align-items: center;
+
+                .image_container {
+                    padding: 4rem;
+                    padding-left: 0px;
+                }
+            }
+        }
+    }
+
+    #about_us {
+        padding: 3rem;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        background-color: white;
+        height: auto;
+
+        .about_container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+
+            .image_container {
+                position: relative;
+                flex: 1 1 20%;
+                overflow: hidden;
+                border-radius: 8px;
+                height: 100%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 8px;
+                }
+
+                .info_box {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background-color: rgba(255, 255, 255, 0.9);
+                    padding: 1rem;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+                    .info_content {
+                        span {
+                            margin: 0;
+                            font-size: 1.25rem;
+                            font-weight: bold;
+                        }
+
+                        p {
+                            margin: 0.5rem 0;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+
+            .text_container {
+                flex: 1 1 50%;
+                margin: 1rem;
+                padding: 1rem;
+
+                h3 {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    color: #7F8C8D;
+                    line-height: 1.2;
+                    margin-bottom: 2rem;
+                }
+
+                h2 {
+                    font-size: 2.5rem;
+                    font-weight: 700;
+                    color: #2C3E50;
+                    line-height: 1.2;
+                    margin-bottom: 3rem;
+
+                    .highlight {
+                        color: #e67e22;
+                    }
+                }
+
+                p {
+                    font-size: 1rem;
+                    line-height: 1.5;
+                    margin-bottom: 2rem;
+                }
+            }
+        }
+    }
+
+    #steps_to_book {
+        padding: 3rem;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        background-color: #f9f9f9;
+
+        .steps_container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+
+            .steps_text {
+                flex: 1 1 60%;
+                padding: 1rem;
+
+                h2 {
+                    font-size: 2.5rem;
+                    font-weight: 700;
+                    color: #2C3E50;
+                    margin-bottom: 2rem;
+                }
+
+                p {
+                    font-size: 1rem;
+                    color: #7F8C8D;
+                    margin-bottom: 2rem;
+                }
+
+                .step {
+                    display: flex;
+                    align-items: flex-start;
+                    margin-bottom: 2rem;
+
+                    .step_number {
+                        padding: 7px;
+                        background-color: #ea580c;
+                        color: white;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 50%;
+                        font-size: 1.25rem;
+                        font-weight: 700;
+                        margin-right: 1rem;
+                    }
+
+                    .step_content {
+                        h3 {
+                            font-size: 1.5rem;
+                            font-weight: 700;
+                            color: #2C3E50;
+                            margin-bottom: 1rem;
+                        }
+
+                        p {
+                            font-size: 1rem;
+                            color: #666;
+                        }
+                    }
+                }
+            }
+
+            .steps_image {
+                flex: 1 1 35%;
+                padding: 1rem;
+
+                img {
+                    width: 100%;
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+
+    #customer_testimonials {
+        padding: 3rem;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        background-color: #fff;
+        text-align: center;
+
+        .testimonial_container {
+            width: 50%;
+            height: auto;
+            margin: 0 auto;
+
+            h2 {
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: #2C3E50;
+                margin-bottom: 3rem;
+            }
+
+            .testimonial_card {
+                display: none;
+                padding: 1rem;
+                background-color: #f9f9f9;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                margin-bottom: 1rem;
+                transition: opacity 0.3s ease;
+
+                &.active {
+                    display: block;
+                }
+
+                .testimonial_avatar {
+                    background-size: cover;
+                    background-position: center;
+                }
+
+                mat-card-title {
+                    font-weight: bold;
+                    color: #333;
+                }
+
+                mat-card-subtitle {
+                    color: #ffa000;
+                    text-align: left;
+                }
+
+                mat-card-content {
+                    font-size: 1rem;
+                    color: #2C3E50;
+                    margin: 1rem 0;
+                    text-align: justify;
+                }
+            }
+
+            .testimonial_navigation {
+                display: flex;
+                justify-content: center;
+
+                button {
+                    margin: 0 0.5rem;
+                }
+            }
+        }
+    }
+
+    #contact_us {
+        padding: 2rem;
+        background-color: #f2f9ff;
+        text-align: center;
+
+        .contact_container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+
+            h2 {
+                font-size: 3rem;
+                font-weight: 700;
+                color: #2C3E50;
+                margin-bottom: 2rem;
+            }
+
+            form {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                flex-wrap: wrap;
+
+                .email_input {
+                    flex: 1;
+                    margin-right: 1rem;
+                }
+
+                button {
+                    height: 56px;
+                }
+            }
+        }
+    }
+}

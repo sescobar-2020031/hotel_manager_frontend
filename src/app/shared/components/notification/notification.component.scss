@@ -1,0 +1,93 @@
+@import '../../../styles/_variables.scss';
+@import '../../../styles/_mixins';
+
+.mat-mdc-snack-bar-container {
+  box-shadow: none;
+  max-width: none !important;
+
+  &.notification-wrapper {
+    background: none;
+  }
+
+  &.notification-wrapper-error {
+    &.mdc-snackbar__surface {
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
+  }
+}
+
+.notification {
+  &.alert {
+    background-color: $aqua;
+    border: 0;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    color: $white;
+    @include title2($font-weight-default);
+    min-width: 300px;
+    padding: 15px;
+    border-radius: 4px;
+
+    .notification-icon {
+      color: $white;
+      font-size: 20px;
+      line-height: 12px;
+      margin-right: 30px;
+      vertical-align: middle;
+    }
+
+    &.alert-dismissible {
+      .close {
+        opacity: 0.5;
+        position: relative;
+        top: -2px;
+        background: transparent;
+        border: 0;
+        appearance: none;
+        float: right;
+        font-size: 21px;
+        font-weight: bold;
+        line-height: 1;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        .fa {
+          color: $white;
+        }
+      }
+    }
+
+    &.alert-info {
+      background-color: $blue;
+    }
+
+    &.alert-success {
+      background-color: $skyblue;
+    }
+
+    &.alert-warning {
+      background-color: $orange;
+    }
+
+    &.alert-danger {
+      background-color: $red;
+    }
+
+    &.alert-dark {
+      background-color: $grey;
+    }
+
+    .notification-line~.notification-text {
+      margin-top: 15px;
+    }
+
+    .btn-close {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      @include button(#c3831b, white, #c3831b85);
+      @include title2($font-weight-default);
+    }
+  }
+}

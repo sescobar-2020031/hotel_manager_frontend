@@ -1,0 +1,45 @@
+<section id="navbar_logged_in">
+    <p-menubar>
+        <ng-template pTemplate="start">
+            <div class="flex align-items-center gap-2">
+                <p-button icon="pi pi-bars" [rounded]="true" [text]="true" severity="secondary" (onClick)="toggleSideMenu()" />
+                <a class="flex align-items-center mr-2 hotelname" [routerLink]="
+                       this.sessionUserService.userLogged.dataUser.role === 'Cliente' ? '/client/home'
+                    : (this.sessionUserService.userLogged.dataUser.role === 'Empleado' ? '/hotel/home'
+                    : (this.sessionUserService.userLogged.dataUser.role === 'Administrador' ? '/hotel/home'
+                    : (this.sessionUserService.userLogged.dataUser.role === 'Super Admin' ? '/super/home' : '/home/login'
+                    )))">
+                    <img src="../../../../assets/images/Logo Hotel Manager.png" alt="Logo" width="33" height="35">
+                    <span class="ml-2">Hotel Manager</span>
+                </a>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="end">
+            <div class="flex align-items-center gap-2 user_information" #userInfo (click)="menu.toggle($event)">
+                <p-avatar image="https://www.shareicon.net/data/512x512/2015/09/18/103160_man_512x512.png"
+                    shape="circle" />
+                <div class="flex flex-column align-items-start justify-content-center name_user">
+                    <h1>{{sessionUserService.userLogged.dataUser.username}}</h1>
+                    <p>{{sessionUserService.userLogged.dataUser.email}}</p>
+                </div>
+                <i class="pi pi-angle-down" style="font-size: 1.2rem"></i>
+            </div>
+            <p-menu #menu [model]="items" [popup]="true">
+                <ng-template pTemplate="item" let-item>
+                    <ng-container *ngIf="item.route; else elseBlock">
+                        <a [routerLink]="item.route" class="p-menuitem-link">
+                            <span [class]="item.icon"></span>
+                            <span class="ml-2">{{ item.label }}</span>
+                        </a>
+                    </ng-container>
+                    <ng-template #elseBlock>
+                        <a [href]="item.url" class="p-menuitem-link">
+                            <span [class]="item.icon"></span>
+                            <span class="ml-2">{{ item.label }}</span>
+                        </a>
+                    </ng-template>
+                </ng-template>
+            </p-menu>
+        </ng-template>
+    </p-menubar>
+</section>

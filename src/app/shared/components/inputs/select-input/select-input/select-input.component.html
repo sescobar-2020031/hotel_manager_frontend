@@ -1,0 +1,55 @@
+<mat-form-field
+  class="select-input"
+>
+  <mat-label>{{label}}</mat-label>
+  <mat-select
+    #selectRef
+    [formControl]="inputControl"
+    [id]="id"
+    [placeholder]="placeholder"
+    (blur)="handleBlur($event)"
+    (focus)="handleFocus($event)"
+    (keydown)="handleKeyDown($event)"
+    (keyup)="handleKeyUp($event)"
+    (keypress)="handleKeyPress($event)"
+    (selectionChange)="handleChange($event)"
+    (click)="handleClick($event)"
+    (dblclick)="handleDblClick($event)"
+    (mousedown)="handleMouseDown($event)"
+    (mouseup)="handleMouseUp($event)"
+    [multiple]="multiple"
+    ngxMatSelectSearch
+  >
+    <mat-select-trigger *ngIf="shortText">
+      {{inputControl.value?.[0] || ''}}
+      <span *ngIf="(inputControl.value?.length || 0) > 1">
+        (+{{(inputControl.value?.length || 0) - 1}} {{inputControl.value?.length === 2 ? 'opción' : 'opciones'}})
+      </span>
+    </mat-select-trigger>
+    <mat-option *ngIf="search">
+      <ngx-mat-select-search
+        [formControl]="filterControl"
+        placeholderLabel="Buscar..."
+        noEntriesFoundLabel="No se encontraron resultados"
+      ></ngx-mat-select-search>
+    </mat-option>
+    <mat-option *ngFor="let opcion of filteredOptions"
+      [value]="opcion.value"
+      [disabled]="opcion.disabled">
+      <div class="content_select">
+        <div *ngIf="opcion.image">
+          <div class="image-container">
+            <img alt="image-select" src="data:image/png;base64,{{opcion.image}}" width="20" height="20" class="vertical-align-middle" />
+          </div>
+        </div>
+        {{opcion.label}}
+      </div>
+    </mat-option>
+  </mat-select>
+  <span *ngIf="icon" matTextPrefix><i class="{{icon}}"></i></span>
+  <span *ngIf="textPrefix" matTextPrefix>{{textPrefix}}</span>
+  <mat-error class="required" *ngIf="inputControl.hasError('required')">
+    {{ errorMessages["required"] || 'Este campo es obligatorio.' }}
+  </mat-error>
+  <mat-hint>{{hint}}</mat-hint>
+</mat-form-field>
