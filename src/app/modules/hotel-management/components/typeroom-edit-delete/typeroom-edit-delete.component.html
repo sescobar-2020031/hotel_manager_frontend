@@ -1,0 +1,78 @@
+<div id="hotel_edit_delete">
+  <div class="content-container main-screen">
+    <header class="row title principal-title">
+      <div class="col-xs-12 text-center header_container">
+        <h1 class="main-title">
+          {{ action | getTitleEditDeleteComponent : "Tipo de habitacion" }}
+        </h1>
+      </div>
+    </header>
+    <section class="hotel_content main-content">
+      <form [formGroup]="form" (ngSubmit)="sendForm()">
+        <text-input
+          [required]="true"
+          formControlName="description"
+          placeholder="Describa el tipo de habitacion"
+          label="Descripcion"
+          id="description"
+          name="description"
+          [validateText]="true"
+        />
+
+        <text-input
+          [required]="true"
+          formControlName="capacity"
+          placeholder="Establezca la capacidad del tipo de habitacion"
+          label="Capacidad"
+          id="capacity"
+          name="capacity"
+          [onlyNumbers]="true"
+        />
+
+        <text-input
+          [required]="true"
+          formControlName="price_Per_Night"
+          placeholder="Establezca el precio por noche"
+          label="Precio por noche"
+          id="price_Per_Night"
+          name="price_Per_Night"
+          [onlyNumbers]="true"
+        />
+
+        <div>&nbsp;</div>
+        <div class="buttons_container">
+          <btn-secondary
+            class="button"
+            label="Cancelar"
+            id="closeForm"
+            name="closeForm"
+            type="button"
+            (onClick)="backToList()"
+            [disabled]="loading"
+          ></btn-secondary>
+          <btn-danger
+            *ngIf="action == 'DELETE'"
+            class="button"
+            label="Eliminar"
+            id="confimationDelete"
+            name="confimationDelete"
+            type="submit"
+            [disabled]="loading || !form.valid"
+          ></btn-danger>
+          <btn-primary
+            *ngIf="action == 'EDIT'"
+            class="button"
+            label="Confirmar"
+            id="confirmationEdit"
+            name="confirmationEdit"
+            type="submit"
+            [disabled]="loading || !form.valid"
+          ></btn-primary>
+        </div>
+      </form>
+    </section>
+    <div *ngIf="loading" class="spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+</div>

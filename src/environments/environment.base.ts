@@ -15,4 +15,7 @@ export const environment = {
   /* USERS */
   USERS_LIST: BASE_IP + '/Users',
   USERS_ADD: BASE_IP + '/Users/register',
+
+  /* TYPES */
+  TYPES_ALL: BASE_IP + '/Types/',
 };
