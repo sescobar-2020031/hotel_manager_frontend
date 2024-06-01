@@ -19,7 +19,9 @@
                 <p-avatar image="https://www.shareicon.net/data/512x512/2015/09/18/103160_man_512x512.png"
                     shape="circle" />
                 <div class="flex flex-column align-items-start justify-content-center name_user">
-                    <h1>{{sessionUserService.userLogged.dataUser.username}}</h1>
+                    <h1>{{sessionUserService.userLogged.dataUser.username}}
+                        {{sessionUserService.userLogged.dataUser.hotel_name ? ('(' + sessionUserService.userLogged.dataUser.hotel_name +')') : ''}}
+                    </h1>
                     <p>{{sessionUserService.userLogged.dataUser.email}}</p>
                 </div>
                 <i class="pi pi-angle-down" style="font-size: 1.2rem"></i>

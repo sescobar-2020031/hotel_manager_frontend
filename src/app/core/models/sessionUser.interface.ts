@@ -11,6 +11,8 @@ export interface DataUser {
     password: any
     role: string
     email: string
+    hotel_id: number
+    hotel_name: string
 }
 
 
